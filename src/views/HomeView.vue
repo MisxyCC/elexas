@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col w-full">
+  <div class="min-h-screen flex flex-col w-screen">
     <!-- Header -->
     <header class="bg-blue-400 p-4 text-white">
       <h1 class="text-2xl font-bold">Elder Excercise Assistant</h1>
@@ -15,8 +15,8 @@
               <div class="flex justify-center items-center">Bluetooth Section</div>
             </template>
             <template #content>
-              <div class="flex gap-2 mt-1">
-                <Button label="Connect" class="w-full" />
+              <div class="flex flex-col md:flex-row gap-2 mt-1">
+                <Button label="Connect" class="w-full" severity="success" />
                 <Button label="Disconnect" severity="danger" class="w-full" />
                 <Button label="Listen" class="w-full" />
                 <Button label="Stop listening" class="w-full" severity="info" />
@@ -67,13 +67,13 @@ const setChartData = () => {
         borderColor: '#c1121f',
         tension: 0.4,
       },
-      {
-        label: 'Second Dataset',
-        data: [28, 48, 40, 19, 86, 27, 90],
-        fill: false,
-        borderColor: documentStyle.getPropertyValue('--p-gray-500'),
-        tension: 0.4,
-      },
+      // {
+      //   label: 'Second Dataset',
+      //   data: [28, 48, 40, 19, 86, 27, 90],
+      //   fill: false,
+      //   borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+      //   tension: 0.4,
+      // },
     ],
   };
 };
