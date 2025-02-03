@@ -22,7 +22,7 @@
             </div>
           </template>
         </Card>
-        <Textarea v-model="textMessage" rows="5" cols="30" class="w-full" />
+        <Textarea v-model="displayTexts" rows="5" cols="30" class="w-full" />
       </aside>
 
       <!-- Main Content Area -->
@@ -47,16 +47,22 @@
 import type { HeartRate } from '@/models/HeartRate';
 import { ref, onMounted, type Ref } from 'vue';
 
-const currentdate = new Date(); 
+onMounted(() => {
+  chartData.value = setChartData();
+  chartOptions.value = setChartOptions();
+});
+
+const chartData: Ref<any, any> = ref();
+const chartOptions: Ref<any, any> = ref();
+const displayTexts: Ref<string> = ref('');
+const textCollector: Ref<string[]> = ref([]);
+
+const currentdate = new Date();
 
 async function connectBluetooth(): Promise<void> {
   try {
-    
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 }
-
 
 async function operateBluetooth(): Promise<void> {
   navigator.bluetooth
@@ -124,15 +130,6 @@ function parseHeartRate(value: any): HeartRate {
   }
   return result;
 }
-
-onMounted(() => {
-  chartData.value = setChartData();
-  chartOptions.value = setChartOptions();
-});
-
-const chartData: Ref<any, any> = ref();
-const chartOptions: Ref<any, any> = ref();
-const textMessage: Ref<any, any> = ref();
 
 const setChartData = () => {
   //const documentStyle = getComputedStyle(document.documentElement);
