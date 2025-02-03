@@ -47,6 +47,17 @@
 import type { HeartRate } from '@/models/HeartRate';
 import { ref, onMounted, type Ref } from 'vue';
 
+const currentdate = new Date(); 
+
+async function connectBluetooth(): Promise<void> {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+
 async function operateBluetooth(): Promise<void> {
   navigator.bluetooth
     .requestDevice({
@@ -58,10 +69,7 @@ async function operateBluetooth(): Promise<void> {
       //acceptAllDevices: true,
       optionalServices: ['heart_rate'],
     })
-    .then((device) => {
-      console.log(`Device name is:${device.name}`)
-      return device.gatt!.connect()
-    })
+    .then((device) => device.gatt!.connect())
     .then((server) => server.getPrimaryService('heart_rate'))
     .then((service) => service.getCharacteristic('heart_rate_measurement'))
     .then((characteristic) => characteristic.startNotifications())
