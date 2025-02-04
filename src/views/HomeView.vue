@@ -8,21 +8,23 @@
     <!-- Main Content -->
     <main class="flex-grow p-4 w-full">
       <!-- Sidebar -->
-      <aside class="p-2 flex flex-col md:flex-row gap-4 justify-between">
-        <Card>
+      <aside class="p-2 flex flex-col md:flex-row gap-4">
+        <Card class="w-full md:w-1/2">
           <template #title>
             <div class="flex justify-center items-center">Bluetooth Section</div>
           </template>
           <template #content>
-            <div class="flex flex-col md:flex-row gap-2 mt-1 justify-between">
-              <Button label="Connect" @click="operateBluetooth" severity="success" />
-              <Button label="Disconnect" severity="danger" class="" />
-              <Button label="Listen Your Heart Rate" class="" />
-              <Button label="Stop listening" class="" severity="info" />
+            <div class="flex flex-col md:flex-row gap-2 mt-1 justify-evenly">
+              <Button label="เชื่อมต่อ Bluetooth" @click="connectBluetooth" severity="success" />
+              <Button
+                label="เลิกเชื่อมต่อ Bluetooth"
+                @click="disconnectBluetooth"
+                severity="danger"
+              />
             </div>
           </template>
         </Card>
-        <Textarea v-model="displayTexts" rows="5" cols="30" class="w-full" />
+        <Textarea v-model="logDisplay" rows="5" cols="30" class="w-full" disabled />
       </aside>
 
       <!-- Main Content Area -->
@@ -44,24 +46,38 @@
 </template>
 <script setup lang="ts">
 /// <reference types="web-bluetooth" />
-import type { HeartRate } from '@/models/HeartRate';
-import { ref, onMounted, type Ref } from 'vue';
+
+import { logging } from '@/main';
+import { parseHeartRate } from '@/utils';
+import { onMounted, ref, type Ref } from 'vue';
 
 onMounted(() => {
   chartData.value = setChartData();
   chartOptions.value = setChartOptions();
 });
 
-const chartData: Ref<any, any> = ref();
-const chartOptions: Ref<any, any> = ref();
-const displayTexts: Ref<string> = ref('');
-const textCollector: Ref<string[]> = ref([]);
+const chartData = ref();
+const chartOptions = ref();
+const logDisplay: Ref<string> = ref('');
 
-const currentdate = new Date();
+let bluetoothDevice: BluetoothDevice | null = null;
+
+function updateLogDisplay(): void {
+  logDisplay.value = logging.getMessages();
+}
+function clearLogDisplay(): void {
+  logging.clearAllMessages();
+  logDisplay.value = '';
+}
 
 async function connectBluetooth(): Promise<void> {
-  try {
-  } catch (error) {}
+  logging.append('เริ่มเชื่อมต่อ Bluetooth');
+  updateLogDisplay();
+  bluetoothDevice = null;
+}
+
+function disconnectBluetooth(): void {
+  clearLogDisplay();
 }
 
 async function operateBluetooth(): Promise<void> {
@@ -86,7 +102,7 @@ async function operateBluetooth(): Promise<void> {
       );
       console.log('Notifications have been started.');
     })
-    .catch((error) => {
+    .catch((error: Error) => {
       console.error(error);
     });
 
@@ -94,41 +110,6 @@ async function operateBluetooth(): Promise<void> {
     const value = event.target.value;
     console.log('Received ', parseHeartRate(value));
   }
-}
-
-function parseHeartRate(value: any): HeartRate {
-  // In Chrome 50+, a DataView is returned instead of an ArrayBuffer.
-  value = value.buffer ? value : new DataView(value);
-  let flags = value.getUint8(0);
-  let rate16Bits: number = flags & 0x1;
-  let result: HeartRate = {};
-  let index = 1;
-  if (rate16Bits) {
-    result.heartRate = value.getUint16(index, /*littleEndian=*/ true);
-    index += 2;
-  } else {
-    result.heartRate = value.getUint8(index);
-    index += 1;
-  }
-  let contactDetected: number = flags & 0x2;
-  let contactSensorPresent: number = flags & 0x4;
-  if (contactSensorPresent) {
-    result.contactDetected = !!contactDetected;
-  }
-  let energyPresent: number = flags & 0x8;
-  if (energyPresent) {
-    result.energyExpended = value.getUint16(index, /*littleEndian=*/ true);
-    index += 2;
-  }
-  let rrIntervalPresent: number = flags & 0x10;
-  if (rrIntervalPresent) {
-    const rrIntervals = [];
-    for (; index + 1 < value.byteLength; index += 2) {
-      rrIntervals.push(value.getUint16(index, /*littleEndian=*/ true));
-    }
-    result.rrIntervals = rrIntervals;
-  }
-  return result;
 }
 
 const setChartData = () => {
