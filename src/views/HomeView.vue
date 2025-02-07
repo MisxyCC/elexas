@@ -15,7 +15,7 @@
           </template>
           <template #content>
             <div class="flex flex-col md:flex-row gap-2 mt-1 justify-evenly">
-              <Button label="เชื่อมต่อ Bluetooth" @click="connectBluetooth" severity="success" />
+              <Button label="เชื่อมต่อ Bluetooth" @click="onConnectClicked" severity="success" />
               <Button
                 label="เลิกเชื่อมต่อ Bluetooth"
                 @click="disconnectBluetooth"
@@ -48,7 +48,7 @@
 /// <reference types="web-bluetooth" />
 
 import { logging } from '@/main';
-import { parseHeartRate } from '@/utils';
+import { exponentialBackoff, parseHeartRate } from '@/utils';
 import { onMounted, ref, type Ref } from 'vue';
 
 onMounted(() => {
@@ -61,8 +61,9 @@ const chartOptions = ref();
 const logDisplay: Ref<string> = ref('');
 
 let bluetoothDevice: BluetoothDevice | null = null;
-
-function updateLogDisplay(): void {
+let characteristic: BluetoothRemoteGATTCharacteristic | null = null;
+function log(message: string): void {
+  logging.append(message);
   logDisplay.value = logging.getMessages();
 }
 function clearLogDisplay(): void {
@@ -70,27 +71,64 @@ function clearLogDisplay(): void {
   logDisplay.value = '';
 }
 
-async function connectBluetooth(): Promise<void> {
-  logging.append('เริ่มเชื่อมต่อ Bluetooth');
-  updateLogDisplay();
+function onDisconnected(): void {
+  log('ยกเลิกการเชื่อมต่อกับ Bluetooth');
+  connect();
+}
+
+async function onConnectClicked(): Promise<void> {
   bluetoothDevice = null;
-}
-
-function disconnectBluetooth(): void {
-  clearLogDisplay();
-}
-
-async function operateBluetooth(): Promise<void> {
-  navigator.bluetooth
-    .requestDevice({
+  try {
+    log('รอผู้ใช้งานเลือกอุปกรณ์ Bluetooth..');
+    bluetoothDevice = await navigator.bluetooth.requestDevice({
       filters: [
         {
           name: '808S 0002760',
         },
       ],
-      //acceptAllDevices: true,
       optionalServices: ['heart_rate'],
-    })
+    });
+    log('ผู้ใช้งานเลือกอุปกรณ์ Bluetooth ชื่อ: ' + bluetoothDevice.name);
+    bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+    connect();
+  } catch (_: unknown) {
+    log('ไม่สามารถเชื่อมต่อได้');
+  }
+}
+
+async function connect(): Promise<void> {
+  exponentialBackoff(
+    3,
+    3,
+    async function toTry() {
+      log('กำลังเชื่อมต่อไปยังอุปกรณ์ Bluetooth...');
+      await bluetoothDevice?.gatt?.connect();
+    },
+    async function success() {
+      log('เชื่อมต่ออุปกรณ์ Bluetooth: ' + bluetoothDevice?.name + ' สำเร็จ');
+    },
+    async function fail() {
+      log('เชื่อมต่ออุปกรณ์ Bluetooth: ' + bluetoothDevice?.name + ' ไม่สำเร็จ');
+    },
+  );
+}
+
+function disconnectBluetooth(): void {
+  //clearLogDisplay();
+}
+
+async function operateBluetooth(): Promise<void> {
+  const option: RequestDeviceOptions = {
+    filters: [
+      {
+        name: '808S 0002760',
+      },
+    ],
+    //acceptAllDevices: true,
+    optionalServices: ['heart_rate'],
+  };
+  navigator.bluetooth
+    .requestDevice(option)
     .then((device) => device.gatt!.connect())
     .then((server) => server.getPrimaryService('heart_rate'))
     .then((service) => service.getCharacteristic('heart_rate_measurement'))
