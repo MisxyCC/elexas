@@ -11,7 +11,7 @@ export async function exponentialBackoff(
   try {
     const result = await toTry();
     success(result);
-  } catch (err: any) {
+  } catch (_: any) {
     if (max === 0) {
       return fail();
     }
@@ -32,7 +32,7 @@ export function parseHeartRate(value: any): HeartRate {
   value = value.buffer ? value : new DataView(value);
   let flags = value.getUint8(0);
   let rate16Bits: number = flags & 0x1;
-  let result: HeartRate = {};
+  const result: HeartRate = {};
   let index = 1;
   if (rate16Bits) {
     result.heartRate = value.getUint16(index, /*littleEndian=*/ true);

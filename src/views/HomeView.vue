@@ -71,9 +71,10 @@ function clearLogDisplay(): void {
   logDisplay.value = '';
 }
 
-function onDisconnected(): void {
+function onDisconnected(event: any): void {
+  console.log(`event: ${event}`);
   log('ยกเลิกการเชื่อมต่อกับ Bluetooth');
-  connect();
+  //connect();
 }
 
 async function onConnectClicked(): Promise<void> {
@@ -113,8 +114,16 @@ async function connect(): Promise<void> {
   );
 }
 
-function disconnectBluetooth(): void {
-  //clearLogDisplay();
+function onClickDisconected(): void {
+  if (!bluetoothDevice) {
+    return;
+  }
+  log('กำลังยกเลิกการเชื่อมต่อ Bluetooth..');
+  if (bluetoothDevice.gatt?.connected) {
+    bluetoothDevice.gatt.disconnect();
+  } else {
+    log('อุปกรณ์ Bluetooth ยกเลิกการเชื่อมต่อแล้ว');
+  }
 }
 
 async function operateBluetooth(): Promise<void> {
