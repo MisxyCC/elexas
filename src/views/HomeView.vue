@@ -30,7 +30,7 @@
                 :label="heartRateRef.heartRate?.toString()"
                 class="mr-2"
                 size="xlarge"
-                shape="circle"
+                shape="square"
               />
             </div>
           </template>
@@ -40,9 +40,17 @@
       <!-- Main Content Area -->
       <section class="p-2 w-full">
         <Card>
-          <template #title>Heart Rate Monitoring</template>
+          <template #title>วีดีโอการออกกำลังกาย</template>
           <template #content>
-            <!-- <Chart type="line" :data="chartData" :options="chartOptions" class="h-[20rem]" /> -->
+            <iframe
+              class="w-full min-h-140"
+              src="https://www.youtube.com/embed/A2wp8Ipxn9s?si=f91lxYNbNjcdeqOY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </template>
         </Card>
       </section>
@@ -65,8 +73,7 @@ onMounted(() => {});
 
 let bluetoothDevice: BluetoothDevice | null = null;
 let heartRateCharacter: BluetoothRemoteGATTCharacteristic | null = null;
-const heartRateRef: Ref<HeartRate> = ref(
-  {heartRate: 0});
+const heartRateRef: Ref<HeartRate> = ref({});
 
 async function onDisconnected(event: Event): Promise<void> {
   console.log('ยกเลิกการเชื่อมต่อกับ Bluetooth');
@@ -128,7 +135,7 @@ async function onConnectClicked(): Promise<void> {
       await requestDevice();
     }
     await connectDeviceAndCacheCharacteristic();
-  } catch (_: unknown) {
+  } catch (_: any) {
     console.log('ไม่สามารถเชื่อมต่อได้');
   }
 }
