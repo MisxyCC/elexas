@@ -40,7 +40,9 @@
       <!-- Main Content Area -->
       <section class="p-2 w-full">
         <Card>
-          <template #title>วีดีโอการออกกำลังกาย</template>
+          <template #title>
+            <div class="flex justify-center items-center">วีดีโอการออกกำลังกาย</div>
+          </template>
           <template #content>
             <iframe
               class="w-full min-h-140"
@@ -52,6 +54,26 @@
               allowfullscreen
             ></iframe>
           </template>
+          <template #footer>
+            <div class="flex gap-4 pt-3 justify-center items-center">
+              <Button
+                label="สิ้นสุดการออกกำลังกาย"
+                @click="onFinishExercise"
+                severity="success"
+                class="w-full md:w-1/3"
+              />
+            </div>
+          </template>
+        </Card>
+      </section>
+
+      <section class="p-2 w-full">
+        <Card>
+          <template #title>
+            <div class="flex justify-center items-center">ข้อมูลสรุปการออกกำลังกายของคุณ</div>
+          </template>
+          <template #content> </template>
+          <template #footer> </template>
         </Card>
       </section>
     </main>
@@ -139,4 +161,6 @@ async function onConnectClicked(): Promise<void> {
     console.log('ไม่สามารถเชื่อมต่อได้');
   }
 }
+
+function onFinishExercise(): void {}
 </script>
