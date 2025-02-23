@@ -28,7 +28,7 @@
             <div class="flex flex-col md:flex-row gap-2 mt-1 justify-center items-center">
               <Avatar
                 :label="heartRateRef.heartRate?.toString()"
-                class="mr-2"
+                class=""
                 size="xlarge"
                 shape="square"
               />
@@ -70,7 +70,7 @@
       <section class="p-2 w-full">
         <Card>
           <template #title>
-            <div class="flex justify-center items-center">ข้อมูลสรุปการออกกำลังกายของคุณ</div>
+            <div class="flex justify-center items-center">ข้อมูลสรุปการออกกำลังกาย</div>
           </template>
           <template #content> </template>
           <template #footer> </template>
@@ -134,7 +134,6 @@ async function requestDevice(): Promise<void> {
 function handleHeartRateChanged(event: any): void {
   const value: any = event.target.value;
   heartRateRef.value = parseHeartRate(value);
-  console.log('อัตราการเต้นหัวใจ (ครั้ง) ต่อวินาที: ' + heartRateRef.value.heartRate);
 }
 
 async function connectDeviceAndCacheCharacteristic(): Promise<void> {
