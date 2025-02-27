@@ -26,12 +26,7 @@
           </template>
           <template #content>
             <div class="flex flex-col md:flex-row gap-2 mt-1 justify-center items-center">
-              <Avatar
-                :label="heartRateRef.heartRate?.toString()"
-                class=""
-                size="xlarge"
-                shape="square"
-              />
+              <p class="text-6xl">{{ heartRateRef.heartRate?.toString() }}</p>
             </div>
           </template>
         </Card>
@@ -95,7 +90,7 @@ onMounted(() => {});
 
 let bluetoothDevice: BluetoothDevice | null = null;
 let heartRateCharacter: BluetoothRemoteGATTCharacteristic | null = null;
-const heartRateRef: Ref<HeartRate> = ref({});
+const heartRateRef: Ref<HeartRate> = ref({ heartRate: 0 });
 
 async function onDisconnected(event: Event): Promise<void> {
   console.log('ยกเลิกการเชื่อมต่อกับ Bluetooth');
