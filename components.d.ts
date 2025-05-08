@@ -8,9 +8,15 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('primevue/avatar')['default']
+    BenefitItem: typeof import('./src/components/BenefitItem.vue')['default']
+    BenefitItems: typeof import('./src/components/BenefitItems.vue')['default']
     Button: typeof import('primevue/button')['default']
+    CallToAction: typeof import('./src/components/CallToAction.vue')['default']
     Card: typeof import('primevue/card')['default']
     Chart: typeof import('primevue/chart')['default']
+    ContentSection: typeof import('./src/components/ContentSection.vue')['default']
+    DisclaimerSection: typeof import('./src/components/DisclaimerSection.vue')['default']
+    GettingStartedTips: typeof import('./src/components/GettingStartedTips.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
@@ -18,6 +24,11 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SiteFooter: typeof import('./src/components/SiteFooter.vue')['default']
+    SiteHeader: typeof import('./src/components/SiteHeader.vue')['default']
+    SiteNavigation: typeof import('./src/components/SiteNavigation.vue')['default']
     Textarea: typeof import('primevue/textarea')['default']
+    VideoItem: typeof import('./src/components/VideoItem.vue')['default']
+    VisualElement: typeof import('./src/components/VisualElement.vue')['default']
   }
 }

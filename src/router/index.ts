@@ -1,23 +1,22 @@
-import LoginView from '@/views/LoginView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import ExerciseView from '../views/ExerciseView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: ExerciseView,
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../views/LoginView.vue'),
+      name: 'main',
+      component: () => import('../views/MainView.vue'),
     },
     {
       path: '/exercise',
       name: 'exercise',
       component: () => import('../views/ExerciseView.vue'),
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
     },
     // {
     //   path: '/about',
