@@ -61,16 +61,7 @@
           </template>
         </Card>
       </section>
-
-      <section class="p-2 w-full">
-        <Card>
-          <template #title>
-            <div class="flex justify-center items-center">ข้อมูลสรุปการออกกำลังกาย</div>
-          </template>
-          <template #content> </template>
-          <template #footer> </template>
-        </Card>
-      </section>
+      <ExerciseConclusion></ExerciseConclusion>
     </main>
 
     <!-- Footer -->
@@ -82,6 +73,7 @@
 <script setup lang="ts">
 /// <reference types="web-bluetooth" />
 
+import ExerciseConclusion from '@/components/ExerciseConclusion.vue';
 import type { HeartRate } from '@/models/HeartRate';
 import { parseHeartRate } from '@/utils';
 import { onMounted, ref, type Ref } from 'vue';

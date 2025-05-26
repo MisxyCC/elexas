@@ -7,7 +7,7 @@
       {{ subtitle }}
     </h3>
     <slot></slot>
-</div>
+  </div>
 </template>
 
 <script setup lang="ts">
