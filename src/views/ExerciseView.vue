@@ -41,7 +41,7 @@
           <template #content>
             <iframe
               class="w-full min-h-140"
-              src="https://www.youtube.com/embed/A2wp8Ipxn9s?si=f91lxYNbNjcdeqOY"
+              src="https://www.youtube.com/embed/1l2cW5jG0q8?si=WLTc7byk-_HBCek9"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -108,6 +108,7 @@ async function onReset(): Promise<void> {
     heartRateCharacter!.removeEventListener('characteristicvaluechanged', handleHeartRateChanged);
     heartRateCharacter = null;
     bluetoothDevice = null;
+    heartRateRef.value.heartRate = 0;
     console.log('อุปกรณ์ Bluetooth ถูกรีเซ็ทเรียบร้อย');
   }
 }

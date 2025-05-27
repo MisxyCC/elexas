@@ -1,6 +1,6 @@
 <template>
   <div class="font-sans antialiased min-h-screen bg-gray-100 text-gray-800 w-screen">
-    <div class=" mx-auto px-4 py-5">
+    <div class="mx-auto px-4 py-5">
       <SiteHeader :title="site.title" :description="site.headerDescription" />
       <SiteNavigation :nav-items="navigation.items" />
 
