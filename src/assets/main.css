@@ -1,3 +1,7 @@
 @import './base.css';
 
 @import 'tailwindcss';
+
+.material-icons-outlined {
+  font-size: inherit; /* This might be better in global styles if used widely */
+}
