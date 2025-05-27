@@ -26,7 +26,10 @@
             </div>
             <h2 class="text-xl font-semibold leading-tight tracking-tight">Wellness Hub</h2>
           </a>
-          <p class="text-base font-light">© 2024 Wellness Hub. All rights reserved.</p>
+          <p class="text-base font-light">
+            พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
+            เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
+          </p>
         </div>
         <div class="flex flex-wrap items-center justify-center gap-6 text-lg">
           <a class="hover:text-[#30e89e] transition-colors font-medium" href="#">Privacy Policy</a>

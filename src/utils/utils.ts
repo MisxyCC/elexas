@@ -6,7 +6,7 @@ export async function exponentialBackoff(
   delay: number,
   toTry: CallableFunction,
   success: CallableFunction,
-  fail: CallableFunction,
+  fail: CallableFunction
 ) {
   try {
     const result = await toTry();

@@ -3,7 +3,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0">
-          <a href="#" class="text-xl font-bold"> NO MORE FALL </a>
+          <a href="#" class="text-xl font-bold hover:bg-[#F9FAF8] hover:text-[#30e89e]">
+            NO MORE FALL
+          </a>
         </div>
 
         <div class="hidden md:block">
@@ -12,7 +14,7 @@
               v-for="item in navigationItems"
               :key="item.name"
               :href="item.href"
-              class="px-3 py-2 rounded-md text-lg font-medium text-gray-700 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+              class="px-3 py-2 rounded-md text-lg font-medium text-gray-700 hover:bg-[#30e89e] hover:text-white transition-colors duration-300"
             >
               {{ item.name }}
             </a>
