@@ -1,58 +1,63 @@
 <template>
-  <section class="py-8 lg:py-12 bg-white">
-    <div class="container mx-auto px-6 lg:px-10">
-      <div class="text-center mb-12 lg:mb-16">
-        <h2 class="pb-8 text-4xl lg:text-5xl font-bold text-[#1A2E25] leading-tight tracking-tight mb-5">
+  <div class="py-8 lg:py-12 bg-white">
+    <div class="mx-auto px-6 lg:px-10">
+      <div class="flex flex-wrap mb-8 lg:mb-4 justify-center items-center">
+        <p
+          class="text-center pb-8 text-3xl lg:text-5xl font-bold text-[#1A2E25] leading-tight tracking-tight mb-5"
+        >
           การออกกำลังกายผ่านเว็บไซต์มีประโยชน์อย่างไร ?
-        </h2>
+        </p>
         <!-- <p class="text-lg lg:text-xl text-[#4B5563] font-light max-w-2xl mx-auto">
           Regular physical activity can significantly improve your quality of life. Our programs
           focus on gentle exercises that are safe and effective for seniors.
         </p> -->
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-        <div
-          class="flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-        >
-          <div class="text-[#30e89e] mb-6">
-            <span class="material-icons-outlined" style="font-size: 64px">directions_walk</span>
-          </div>
-          <h3 class="text-2xl font-semibold text-[#1A2E25] mb-3">Improved Mobility</h3>
-          <p class="text-[#4B5563] text-lg font-light leading-relaxed">
-            Maintain your independence and move with greater ease and confidence.
-          </p>
-        </div>
-        <div
-          class="flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-        >
-          <div class="text-[#30e89e] mb-6">
-            <span class="material-icons-outlined" style="font-size: 64px">groups</span>
-          </div>
-          <h3 class="text-2xl font-semibold text-[#1A2E25] mb-3">Social Connection</h3>
-          <p class="text-[#4B5563] text-lg font-light leading-relaxed">
-            Connect with peers, build friendships, and foster a supportive community.
-          </p>
-        </div>
-        <div
-          class="flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-        >
-          <div class="text-[#30e89e] mb-6">
-            <span class="material-icons-outlined" style="font-size: 64px"
-              >sentiment_very_satisfied</span
-            >
-          </div>
-          <h3 class="text-2xl font-semibold text-[#1A2E25] mb-3">Enhanced Mood</h3>
-          <p class="text-[#4B5563] text-lg font-light leading-relaxed">
-            Feel happier, more energized, and reduce stress through enjoyable activities.
-          </p>
+        <div v-for="benefit in allBenefits" :key="benefit.title">
+          <BenefitItem :model-value="benefit"></BenefitItem>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-// No script needed for this static component yet
+import type { Benefit } from '@/models/Benefit';
+import { ref, type Ref } from 'vue';
+import BenefitItem from './BenefitItem.vue';
+
+const allBenefits: Ref<Benefit[]> = ref([
+  {
+    iconName: 'directions_walk',
+    title: 'Improved Mobility',
+    description: 'เพื่อเพิ่มความแข็งแรงของกล้ามเนื้อและฝึกการทรงตัว ลดความเสี่ยงในการล้ม',
+  },
+  {
+    iconName: 'directions_walk',
+    title: 'Improved Mobility',
+    description: 'ส่งเสริมคุณภาพชีวิตและความสามารถในการทำกิจวัตรประจำวัน',
+  },
+  {
+    iconName: 'directions_walk',
+    title: 'Improved Mobility',
+    description: 'เข้าถึงง่าย สะดวก สามารถออกกำลังกายได้ที่บ้าน',
+  },
+  {
+    iconName: 'directions_walk',
+    title: 'Improved Mobility',
+    description: 'ลดความเสี่ยงในการเจอมลพิษข้างนอก',
+  },
+  {
+    iconName: 'directions_walk',
+    title: 'Improved Mobility',
+    description: 'ปลอดภัยจากโรคติดต่อ',
+  },
+  {
+    iconName: 'diversity_1',
+    title: 'Enhanced Mood',
+    description: 'ปลอดภัยจากโรคติดต่อ',
+  },
+]);
 </script>
 
 <style scoped></style>

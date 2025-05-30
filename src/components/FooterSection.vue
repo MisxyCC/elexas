@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#1A2E25] text-[#E5E7EB]">
+  <footer class="bg-white text-black">
     <div class="container mx-auto px-6 lg:px-10 py-12">
       <div class="flex flex-col md:flex-row justify-between items-center gap-8">
         <div class="text-center md:text-left">
@@ -24,12 +24,14 @@
                 </defs>
               </svg>
             </div>
-            <h2 class="text-xl font-semibold leading-tight tracking-tight">Wellness Hub</h2>
+            <h2 class="text-[#30e89e] text-lg font-medium leading-tight tracking-tight">
+              พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
+              เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
+            </h2>
           </a>
-          <p class="text-base font-light">
-            พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
-            เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
-          </p>
+          <h3 class="text-lg font-light text-md pt-2 font-medium">
+            99 หมู่ที่ 9 ถนน พิษณุโลก-นครสวรรค์ ตำบล ท่าโพธิ์ อำเภอเมืองพิษณุโลก พิษณุโลก 65000
+          </h3>
         </div>
         <div class="flex flex-wrap items-center justify-center gap-6 text-lg">
           <a class="hover:text-[#30e89e] transition-colors font-medium" href="#">Privacy Policy</a>
