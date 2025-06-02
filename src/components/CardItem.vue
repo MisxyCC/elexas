@@ -2,7 +2,7 @@
   <div
     class="flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
   >
-    <div class="text-[#30e89e] mb-6">
+    <div class="text-[#048a81] mb-6">
       <span class="material-icons-outlined" style="font-size: 64px">{{
         benefitModel.iconName
       }}</span>
@@ -14,9 +14,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { Benefit } from '@/models/Benefit';
+import type { CardDetail } from '@/models/CardDetail';
 
-const benefitModel = defineModel<Benefit>({
+const benefitModel = defineModel<CardDetail>({
   required: true,
 });
 </script>

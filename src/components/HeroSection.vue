@@ -23,7 +23,7 @@
         เหมาะกับทุกคน โดยเฉพาะผู้สูงอายุที่อาจอยู่ตามลำพัง
       </p>
       <button
-        class="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 mx-auto bg-[#30e89e] text-[#1A2E25] text-xl md:text-2xl font-semibold leading-normal tracking-wide hover:bg-[#F9FAF8] hover:text-[#30e89e] border-2 border-transparent hover:border-[#30e89e] transition-all duration-300 ease-in-out transform hover:scale-105"
+        class="flex w-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 mx-auto bg-[#30e89e] text-[#1A2E25] text-xl md:text-2xl font-semibold leading-normal tracking-wide border-2 border-transparent hover:border-[#30e89e] transition-all duration-300 ease-in-out transform hover:scale-105"
         disabled
       >
         <span class="truncate">เพราะเราเชื่อว่า “การหกล้ม…ป้องกันได้”</span>

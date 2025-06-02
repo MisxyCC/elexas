@@ -7,14 +7,10 @@
         >
           การออกกำลังกายผ่านเว็บไซต์มีประโยชน์อย่างไร ?
         </p>
-        <!-- <p class="text-lg lg:text-xl text-[#4B5563] font-light max-w-2xl mx-auto">
-          Regular physical activity can significantly improve your quality of life. Our programs
-          focus on gentle exercises that are safe and effective for seniors.
-        </p> -->
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         <div v-for="benefit in allBenefits" :key="benefit.title">
-          <BenefitItem :model-value="benefit"></BenefitItem>
+          <CardItem :model-value="benefit"></CardItem>
         </div>
       </div>
     </div>
@@ -22,40 +18,25 @@
 </template>
 
 <script setup lang="ts">
-import type { Benefit } from '@/models/Benefit';
+import type { CardDetail } from '@/models/CardDetail';
 import { ref, type Ref } from 'vue';
-import BenefitItem from './BenefitItem.vue';
+import CardItem from './CardItem.vue';
 
-const allBenefits: Ref<Benefit[]> = ref([
+const allBenefits: Ref<CardDetail[]> = ref([
   {
     iconName: 'directions_walk',
-    title: 'Improved Mobility',
-    description: 'เพื่อเพิ่มความแข็งแรงของกล้ามเนื้อและฝึกการทรงตัว ลดความเสี่ยงในการล้ม',
+    title: 'เพิ่มความแข็งแรงของกล้ามเนื้อ ฝึกการทรงตัว ลดความเสี่ยงในการล้มเพิ่มความสามารถในการทรงตัวในผู้สูงอายุ',
+    description: '',
   },
   {
     iconName: 'directions_walk',
-    title: 'Improved Mobility',
-    description: 'ส่งเสริมคุณภาพชีวิตและความสามารถในการทำกิจวัตรประจำวัน',
+    title: 'ส่งเสริมคุณภาพชีวิตและความสามารถในการทํากิจวัตรประจําวัน',
+    description: '',
   },
   {
     iconName: 'directions_walk',
-    title: 'Improved Mobility',
-    description: 'เข้าถึงง่าย สะดวก สามารถออกกำลังกายได้ที่บ้าน',
-  },
-  {
-    iconName: 'directions_walk',
-    title: 'Improved Mobility',
-    description: 'ลดความเสี่ยงในการเจอมลพิษข้างนอก',
-  },
-  {
-    iconName: 'directions_walk',
-    title: 'Improved Mobility',
-    description: 'ปลอดภัยจากโรคติดต่อ',
-  },
-  {
-    iconName: 'diversity_1',
-    title: 'Enhanced Mood',
-    description: 'ปลอดภัยจากโรคติดต่อ',
+    title: 'เข้าถึงง่าย สะดวก สามารถออกกำลังกายได้ที่บ้าน',
+    description: '',
   },
 ]);
 </script>

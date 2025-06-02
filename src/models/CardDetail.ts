@@ -1,4 +1,4 @@
-export interface Benefit {
+export interface CardDetail {
   iconName: string;
   title: string;
   description: string;

@@ -5,7 +5,7 @@
       <div class="flex-1">
         <HeroSection />
         <BenefitsSection />
-        <CallToActionSection />
+        <ExerciseWarning />
       </div>
       <FooterSection />
     </div>
@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import BenefitsSection from '@/components/BenefitsSection.vue';
-import CallToActionSection from '@/components/CallToActionSection.vue';
+import ExerciseWarning from '@/components/ExerciseWarning.vue';
 import FooterSection from '@/components/FooterSection.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import NavMenu from '@/components/NavMenu.vue';
