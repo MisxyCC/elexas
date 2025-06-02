@@ -48,6 +48,7 @@ declare module 'vue' {
     SiteNavigation: typeof import('./src/components/SiteNavigation.vue')['default']
     Textarea: typeof import('primevue/textarea')['default']
     VideoItem: typeof import('./src/components/VideoItem.vue')['default']
+    VideoSection: typeof import('./src/components/VideoSection.vue')['default']
     VisualElement: typeof import('./src/components/VisualElement.vue')['default']
   }
 }
