@@ -6,6 +6,7 @@
         <HeroSection />
         <BenefitsSection />
         <ExerciseWarning />
+        <VideoSection />
       </div>
       <FooterSection />
     </div>
@@ -17,4 +18,5 @@ import ExerciseWarning from '@/components/ExerciseWarning.vue';
 import FooterSection from '@/components/FooterSection.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import NavMenu from '@/components/NavMenu.vue';
+import VideoSection from '@/components/VideoSection.vue';
 </script>
