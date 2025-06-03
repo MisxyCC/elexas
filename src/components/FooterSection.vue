@@ -1,14 +1,14 @@
 <template>
   <footer class="bg-white text-black">
     <div class="container mx-auto px-6 lg:px-10 py-12">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8">
         <div class="text-center md:text-left">
           <a
             class="flex items-center justify-center md:justify-start gap-3 text-white mb-2"
             href="#"
           >
             <div class="size-7 text-[#30e89e]">
-              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <!-- <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clipPathIdFooter)">
                   <path
                     clip-rule="evenodd"
@@ -22,7 +22,7 @@
                     <rect fill="white" height="48" width="48"></rect>
                   </clipPath>
                 </defs>
-              </svg>
+              </svg> -->
             </div>
             <h2 class="text-black text-lg font-medium leading-tight tracking-tight text-center">
               พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย

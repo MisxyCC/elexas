@@ -23,6 +23,7 @@ declare module 'vue' {
     DisclaimerSection: typeof import('./src/components/DisclaimerSection.vue')['default']
     ExerciseConclusion: typeof import('./src/components/ExerciseConclusion.vue')['default']
     ExerciseWarning: typeof import('./src/components/ExerciseWarning.vue')['default']
+    ExerciseWarningSection: typeof import('./src/components/ExerciseWarningSection.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     FooterSection: typeof import('./src/components/FooterSection.vue')['default']
     GettingStartedTips: typeof import('./src/components/GettingStartedTips.vue')['default']
@@ -50,5 +51,7 @@ declare module 'vue' {
     VideoItem: typeof import('./src/components/VideoItem.vue')['default']
     VideoSection: typeof import('./src/components/VideoSection.vue')['default']
     VisualElement: typeof import('./src/components/VisualElement.vue')['default']
+    WarningSection: typeof import('./src/components/WarningSection.vue')['default']
+    WelcomeSection: typeof import('./src/components/WelcomeSection.vue')['default']
   }
 }

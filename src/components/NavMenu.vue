@@ -97,9 +97,9 @@ import { ref } from 'vue';
 const isMobileMenuOpen = ref<boolean>(false);
 
 const navigationItems = ref<NavigationItem[]>([
-  { name: 'ประโยชน์ และ ความปลอดภัย', href: '#' },
-  { name: 'วีดีโอการออกกำลังกาย', href: '#' },
-  { name: 'ติดต่อเรา', href: '#' },
+  { name: 'ประโยชน์ของการออกกำลังกาย', href: '#' },
+  { name: 'คำแนะนำในการออกกำลังกาย', href: '#' },
+  { name: 'วีดีโอออกกำลังกาย', href: '#' },
 ]);
 
 const toggleMobileMenu = (): void => {
