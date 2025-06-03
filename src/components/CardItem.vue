@@ -1,6 +1,6 @@
 <template>
   <div
-    class=" overflow-auto flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+    class="overflow-auto flex flex-col items-center text-center p-8 bg-[#F9FAF8] rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
   >
     <div class="text-[#048a81] mb-6">
       <span class="material-icons-outlined" style="font-size: 64px">{{

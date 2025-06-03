@@ -1,9 +1,15 @@
 <template>
-  <nav class="sticky top-0 bg-white shadow-lg">
+  <nav class="fixed inset-x-0 top-0 bg-white shadow-lg z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0">
-          <a href="#" class="text-xl font-bold"> NO MORE FALL </a>
+          <a
+            href="#welcome-section"
+            @click.prevent="navigateToSection('welcome-section')"
+            class="text-xl font-bold cursor-pointer"
+          >
+            NO MORE FALL
+          </a>
         </div>
 
         <div class="hidden md:block">
@@ -12,7 +18,8 @@
               v-for="item in navigationItems"
               :key="item.name"
               :href="item.href"
-              class="px-3 py-2 rounded-md text-lg font-medium text-gray-700 hover:bg-[#30e89e] transition-colors duration-300"
+              @click.prevent="navigateToSection(item.targetSection)"
+              class="px-3 py-2 rounded-md text-lg font-medium text-gray-700 hover:bg-[#30e89e] transition-colors duration-300 cursor-pointer"
             >
               {{ item.name }}
             </a>
@@ -79,8 +86,8 @@
             v-for="item in navigationItems"
             :key="item.name"
             :href="item.href"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-500 hover:text-white block transition-colors duration-300"
-            @click="closeMobileMenu"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-500 hover:text-white block transition-colors duration-300 cursor-pointer"
+            @click.prevent="navigateToSection(item.targetSection, true)"
           >
             {{ item.name }}
           </a>
@@ -91,17 +98,29 @@
 </template>
 
 <script setup lang="ts">
-import type { NavigationItem } from '@/models/MenuItem';
+import type { NavigationItem } from '@/models/NavigationItem';
 import { ref } from 'vue';
 
 const isMobileMenuOpen = ref<boolean>(false);
+const emit = defineEmits(['navigate']);
 
 const navigationItems = ref<NavigationItem[]>([
-  { name: 'ประโยชน์ของการออกกำลังกาย', href: '#' },
-  { name: 'คำแนะนำในการออกกำลังกาย', href: '#' },
-  { name: 'วีดีโอออกกำลังกาย', href: '#' },
+  { name: 'ประโยชน์ของการออกกำลังกาย', href: '#benefit-section', targetSection: 'benefit-section' },
+  { name: 'คำแนะนำในการออกกำลังกาย', href: '#warning-section', targetSection: 'warning-section' },
+  { name: 'โปรแกรมการออกกำลังกาย', href: '#video-section', targetSection: 'video-section' },
 ]);
 
+const navigateToSection = (
+  sectionName: string | undefined,
+  isMobileClick: boolean = false
+): void => {
+  if (sectionName) {
+    emit('navigate', sectionName);
+    if (isMobileClick) {
+      closeMobileMenu();
+    }
+  }
+};
 const toggleMobileMenu = (): void => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };

@@ -1,5 +1,5 @@
 <template>
-     <div class="flex flex-wrap justify-center items-center py-8 lg:py-12 bg-[#E6FBF2]">
+  <div class="flex flex-wrap justify-center items-center py-8 lg:py-12 bg-[#E6FBF2]">
     <div class="mx-auto px-6 lg:px-10">
       <div class="flex flex-wrap mb-8 lg:mb-4 justify-center items-center">
         <p
@@ -10,7 +10,7 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         <div v-for="risk in allRisks" :key="risk.title">
-          <CardItem :model-value="risk"></CardItem>
+          <VideoItem></VideoItem>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import type { CardDetail } from '@/models/CardDetail';
 import { ref, type Ref } from 'vue';
-import CardItem from './CardItem.vue';
+import VideoItem from './VideoItem.vue';
 const allRisks: Ref<CardDetail[]> = ref([
   {
     iconName: 'warning',
