@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen flex flex-col min-w-screen">
     <!-- Header -->
-    <header class="bg-[#8ac926] p-4 text-white">
-      <h1 class="text-2xl font-bold">Elder Excercise Assistant</h1>
+    <header class="bg-[#30e89e] p-4 text-white text-center">
+      <h1 class="text-2xl font-bold">โปรแกรมออกกำลังกาย</h1>
     </header>
 
     <!-- Main Content -->
@@ -65,8 +65,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#8ac926] p-4 text-white">
-      <p>&copy; 2025 Misxy</p>
+    <footer class="bg-[#30e89e] p-4 text-white text-center">
+      <p>
+        &copy; พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
+        เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
+      </p>
     </footer>
   </div>
 </template>
@@ -78,7 +81,9 @@ import type { HeartRate } from '@/models/HeartRate';
 import { parseHeartRate } from '@/utils';
 import { onMounted, ref, type Ref } from 'vue';
 
-onMounted(() => {});
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 let bluetoothDevice: BluetoothDevice | null = null;
 let heartRateCharacter: BluetoothRemoteGATTCharacteristic | null = null;

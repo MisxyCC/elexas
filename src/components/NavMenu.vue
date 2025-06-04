@@ -6,7 +6,7 @@
           <a
             href="#welcome-section"
             @click.prevent="navigateToSection('welcome-section')"
-            class="text-xl font-bold cursor-pointer"
+            class="text-xl font-bold cursor-pointer text-black"
           >
             NO MORE FALL
           </a>
@@ -19,7 +19,7 @@
               :key="item.name"
               :href="item.href"
               @click.prevent="navigateToSection(item.targetSection)"
-              class="px-3 py-2 rounded-md text-lg font-medium text-gray-700 hover:bg-[#30e89e] transition-colors duration-300 cursor-pointer"
+              class="text-black px-3 py-2 rounded-md text-lg font-medium hover:bg-[#30e89e] transition-colors duration-300 cursor-pointer"
             >
               {{ item.name }}
             </a>

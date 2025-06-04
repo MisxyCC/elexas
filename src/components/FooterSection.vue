@@ -25,13 +25,13 @@
               </svg> -->
             </div>
             <h2 class="text-black text-lg font-medium leading-tight tracking-tight text-center">
-              พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
+              &copy; พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
               เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
             </h2>
+            <h2 class="text-black text-lg font-medium leading-tight tracking-tight text-center">
+              99 หมู่ที่ 9 ถนน พิษณุโลก-นครสวรรค์ ตำบล ท่าโพธิ์ อำเภอเมืองพิษณุโลก พิษณุโลก 65000
+            </h2>
           </a>
-          <h3 class="text-lg font-light text-md pt-6 font-medium">
-            99 หมู่ที่ 9 ถนน พิษณุโลก-นครสวรรค์ ตำบล ท่าโพธิ์ อำเภอเมืองพิษณุโลก พิษณุโลก 65000
-          </h3>
         </div>
         <!-- <div class="flex flex-wrap items-center justify-center gap-6 text-lg">
           <a class="hover:text-[#30e89e] transition-colors font-medium" href="#">Privacy Policy</a>
