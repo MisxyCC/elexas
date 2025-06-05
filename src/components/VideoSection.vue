@@ -8,7 +8,7 @@
           โปรแกรมการออกกำลังกายป้องกันการหกล้ม
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         <div v-for="risk in allRisks" :key="risk.title">
           <VideoItem></VideoItem>
         </div>
@@ -22,20 +22,23 @@ import { ref, type Ref } from 'vue';
 import VideoItem from './VideoItem.vue';
 const allRisks: Ref<CardDetail[]> = ref([
   {
-    iconName: 'warning',
-    title: 'ออกกำลังกายใกล้กับสิ่งของที่มั่นคง ยืนใกล้กำแพง และใช้โต๊ะหรือเก้าอี้ที่มีความมั่นคง',
+    iconName: '',
+    title: '',
     description: '',
   },
   {
-    iconName: 'warning',
-    title:
-      'หากพบอาการผิดปกติใดๆขณะออกกำลังกาย เช่น วิงเวียนศีรษะ เจ็บหน้าอก หรือหายใจไม่อิ่ม (พูดไม่ได้เพราะหายใจเร็ว) ให้หยุดพักจนกว่าอาการจะดีขึ้น',
+    iconName: '',
+    title: '',
     description: '',
   },
   {
-    iconName: 'warning',
-    title:
-      'หากอาการไม่ดีขึ้นหรือเกิดอุบัติเหตุ ให้กดปุ่มขอความช่วยเหลือ หรือสัญลักษณ์ SOS สีแดงที่หน้าจอ ระบบจะส่งแจ้งเตือนไปที่โทรศัพท์มือถือของญาติหรือผู้ดูแลที่ได้ลงทะเบียนไว้',
+    iconName: '',
+    title: '',
+    description: '',
+  },
+   {
+    iconName: '',
+    title: '',
     description: '',
   },
 ]);
