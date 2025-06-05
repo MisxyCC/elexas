@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen flex flex-col min-w-screen">
     <!-- Header -->
-    <header class="bg-[#30e89e] p-4 text-white text-center">
-      <h1 class="text-2xl font-bold">โปรแกรมออกกำลังกาย</h1>
+    <header class="bg-[#E6FBF2] p-4 text-black text-center">
+      <h1 class="text-xl font-bold">โปรแกรมออกกำลังกาย</h1>
     </header>
 
     <!-- Main Content -->
@@ -17,6 +17,27 @@
             <div class="flex flex-col md:flex-row gap-2 mt-1 justify-center items-center">
               <Button label="เชื่อมต่อ Bluetooth" @click="onConnectClicked" severity="success" />
               <Button label="เลิกเชื่อมต่อ Bluetooth" @click="onReset" severity="danger" />
+            </div>
+          </template>
+        </Card>
+        <Card class="w-full md:w-1/3">
+          <template #title>
+            <div class="flex justify-center items-center">สถานะการเชื่อมต่อ Bluetooth</div>
+          </template>
+          <template #content>
+            <div class="flex justify-center items-center">
+              <p class="text-xl">
+                {{ isBluetoothConnected ? 'เชื่อมต่อสำเร็จ' : 'เชื่อมต่อไม่สำเร็จ' }}
+              </p>
+              <span
+                :class="[
+                  isBluetoothConnected
+                    ? 'text-[#30e89e] material-icons-outlined'
+                    : 'text-[#c1121f] material-icons-outlined',
+                ]"
+                style="font-size: 4rem"
+                >{{ isBluetoothConnected ? 'check_circle' : 'error' }}</span
+              >
             </div>
           </template>
         </Card>
@@ -55,7 +76,7 @@
                 label="สิ้นสุดการออกกำลังกาย"
                 @click="onFinishExercise"
                 severity="success"
-                class="w-full md:w-1/3"
+                class="w-full md:w-auto"
               />
             </div>
           </template>
@@ -64,19 +85,14 @@
       <ExerciseConclusion></ExerciseConclusion>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#30e89e] p-4 text-white text-center">
-      <p>
-        &copy; พัฒนาโดยคณะผู้วิจัยจากมหาวิทยาลัยนเรศวร ภายใต้โครงการวิจัย
-        เพื่อการส่งเสริมสุขภาพผู้สูงอายุ
-      </p>
-    </footer>
+    <FooterSection></FooterSection>
   </div>
 </template>
 <script setup lang="ts">
 /// <reference types="web-bluetooth" />
 
 import ExerciseConclusion from '@/components/ExerciseConclusion.vue';
+import FooterSection from '@/components/FooterSection.vue';
 import type { HeartRate } from '@/models/HeartRate';
 import { parseHeartRate } from '@/utils';
 import { onMounted, ref, type Ref } from 'vue';
@@ -88,17 +104,19 @@ onMounted(() => {
 let bluetoothDevice: BluetoothDevice | null = null;
 let heartRateCharacter: BluetoothRemoteGATTCharacteristic | null = null;
 const heartRateRef: Ref<HeartRate> = ref({ heartRate: 0 });
+const isBluetoothConnected: Ref<boolean> = ref(false);
 
 async function onDisconnected(event: Event): Promise<void> {
   console.log('ยกเลิกการเชื่อมต่อกับ Bluetooth');
   try {
     await onReset();
-    await connectDeviceAndCacheCharacteristic();
   } catch (error) {
     console.log('พบปัญหา: ' + error);
   }
 }
-
+function updateBluetoothConnectionStatus(): void {
+  isBluetoothConnected.value = !isBluetoothConnected.value;
+}
 async function onReset(): Promise<void> {
   if (heartRateCharacter) {
     await heartRateCharacter?.stopNotifications();
@@ -106,6 +124,7 @@ async function onReset(): Promise<void> {
     heartRateCharacter = null;
     bluetoothDevice = null;
     heartRateRef.value.heartRate = 0;
+    updateBluetoothConnectionStatus();
     console.log('อุปกรณ์ Bluetooth ถูกรีเซ็ทเรียบร้อย');
   }
 }
@@ -142,6 +161,7 @@ async function connectDeviceAndCacheCharacteristic(): Promise<void> {
   console.log('เริ่มการอ่านค่าอัตราการเต้นหัวใจ..');
   heartRateCharacter?.startNotifications();
   heartRateCharacter?.addEventListener('characteristicvaluechanged', handleHeartRateChanged);
+  updateBluetoothConnectionStatus();
 }
 async function onConnectClicked(): Promise<void> {
   try {
@@ -149,8 +169,8 @@ async function onConnectClicked(): Promise<void> {
       await requestDevice();
     }
     await connectDeviceAndCacheCharacteristic();
-  } catch (_: any) {
-    console.log('ไม่สามารถเชื่อมต่อได้');
+  } catch (error) {
+    console.log('ไม่สามารถเชื่อมต่อได้ เนื่องจาก ', error);
   }
 }
 

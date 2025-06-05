@@ -36,7 +36,7 @@ const allRisks: Ref<CardDetail[]> = ref([
     title: '',
     description: '',
   },
-   {
+  {
     iconName: '',
     title: '',
     description: '',

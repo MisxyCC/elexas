@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     BenefitItem: typeof import('./src/components/BenefitItem.vue')['default']
     BenefitItems: typeof import('./src/components/BenefitItems.vue')['default']
     BenefitsSection: typeof import('./src/components/BenefitsSection.vue')['default']

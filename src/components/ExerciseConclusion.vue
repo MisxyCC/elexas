@@ -6,7 +6,7 @@
       </template>
       <template #content>
         <div class="flex flex-col md:flex-row gap-2 justify-center items-center">
-          <label for="username">ชื่อผู้ใช้งาน</label>
+          <label for="username" class="text-xl">ชื่อผู้ใช้งาน</label>
           <InputText
             id="username"
             v-model="name"
@@ -14,7 +14,7 @@
             readonly
             class="text-center"
           />
-          <label for="age">อายุ (ปี)</label>
+          <label for="age" class="text-xl">อายุ (ปี)</label>
           <InputText
             id="age"
             v-model="age"
@@ -26,7 +26,7 @@
       </template>
       <template #footer>
         <DataTable :value="exerciseConclusions" showGridlines tableStyle="min-width: 50rem">
-          <Column field="currentDateTime" header="วัน เดือน ปี (เวลา)">
+          <Column field="currentDateTime" header="วัน เดือน ปี (เวลา)" class="text-xl">
             <template #body="slotProps">
               {{
                 slotProps.data.currentDateTime.toLocaleString('th-TH', {
@@ -40,8 +40,16 @@
               }}
             </template>
           </Column>
-          <Column field="averageHBP" header="ระยะเวลาที่ใช้ออกกำลังกาย (นาที)"></Column>
-          <Column field="averageHBP" header="อัตราการเต้นของหัวใจโดยเฉลี่ย (ครั้ง/นาที)"></Column>
+          <Column
+            field="averageHBP"
+            header="ระยะเวลาที่ใช้ออกกำลังกาย (นาที)"
+            class="text-xl"
+          ></Column>
+          <Column
+            field="averageHBP"
+            header="อัตราการเต้นของหัวใจโดยเฉลี่ย (ครั้ง/นาที)"
+            class="text-xl"
+          ></Column>
         </DataTable>
       </template>
     </Card>
