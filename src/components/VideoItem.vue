@@ -19,7 +19,7 @@
       <div class="flex flex-wrap justify-center items-center mt-1">
         <button
           class="flex w-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 mx-auto bg-[#30e89e] text-[#1A2E25] text-xl md:text-2xl font-semibold leading-normal tracking-wide border-2 border-transparent hover:border-[#30e89e] transition-all duration-300 ease-in-out transform hover:scale-105"
-          @click="router.push('/exercise')"
+          @click="router.push('/video')"
         >
           <span class="truncate">เลือกโปรแกรมนี้</span>
         </button>
