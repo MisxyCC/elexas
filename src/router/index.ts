@@ -18,11 +18,6 @@ const router = createRouter({
       name: 'login',
       component: () => import('@/views/LoginView.vue'),
     },
-    {
-      path: '/video',
-      name: 'video',
-      component: () => import('@/components/VideoView.vue'),
-    },
     // {
     //   path: '/about',
     //   name: 'about',
