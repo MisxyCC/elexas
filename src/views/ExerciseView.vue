@@ -60,25 +60,7 @@
             <div class="flex justify-center items-center">วีดีโอการออกกำลังกาย</div>
           </template>
           <template #content>
-            <iframe
-              class="w-full min-h-140"
-              src="https://www.youtube.com/embed/1l2cW5jG0q8?si=WLTc7byk-_HBCek9"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </template>
-          <template #footer>
-            <div class="flex gap-4 pt-3 justify-center items-center">
-              <Button
-                label="สิ้นสุดการออกกำลังกาย"
-                @click="onFinishExercise"
-                severity="success"
-                class="w-full md:w-auto"
-              />
-            </div>
+            <VideoView></VideoView>
           </template>
         </Card>
       </section>
@@ -93,6 +75,7 @@
 
 import ExerciseConclusion from '@/components/ExerciseConclusion.vue';
 import FooterSection from '@/components/FooterSection.vue';
+import VideoView from '@/components/VideoView.vue';
 import type { HeartRate } from '@/models/HeartRate';
 import { parseHeartRate } from '@/utils';
 import { onMounted, ref, type Ref } from 'vue';

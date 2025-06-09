@@ -51,6 +51,7 @@ declare module 'vue' {
     Textarea: typeof import('primevue/textarea')['default']
     VideoItem: typeof import('./src/components/VideoItem.vue')['default']
     VideoSection: typeof import('./src/components/VideoSection.vue')['default']
+    VideoView: typeof import('./src/components/VideoView.vue')['default']
     VisualElement: typeof import('./src/components/VisualElement.vue')['default']
     WarningSection: typeof import('./src/components/WarningSection.vue')['default']
     WelcomeSection: typeof import('./src/components/WelcomeSection.vue')['default']
