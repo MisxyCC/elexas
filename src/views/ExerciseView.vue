@@ -51,6 +51,16 @@
             </div>
           </template>
         </Card>
+        <Card class="w-full md:w-1/2">
+          <template #title>
+            <div class="flex justify-center items-center text-center">SOS ขอความช่วยเหลือ</div>
+          </template>
+          <template #content>
+            <div class="flex flex-col md:flex-row gap-2 mt-1 justify-center items-center">
+              <Button label="SOS ขอความช่วยเหลือ" @click="onReset" severity="help" />
+            </div>
+          </template>
+        </Card>
       </aside>
 
       <!-- Main Content Area -->
