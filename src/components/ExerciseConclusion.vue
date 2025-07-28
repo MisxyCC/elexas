@@ -66,6 +66,12 @@ import { ref, type Ref } from 'vue';
 const name: Ref<string> = ref('นาย กินไก่ เคเอฟซี');
 const age: Ref<string> = ref('20');
 
+const props = withDefaults(defineProps<ExerciseConclusion>(), {
+  currentDateTime: undefined,
+  totalUsedTime: undefined,
+  averageHBP: undefined,
+});
+
 const exerciseConclusions: Ref<ExerciseConclusion[]> = ref([
   {
     currentDateTime: new Date(),
