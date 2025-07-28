@@ -26,7 +26,11 @@
       </template>
       <template #footer>
         <DataTable :value="exerciseConclusions" showGridlines tableStyle="min-width: 50rem">
-          <Column field="currentDateTime" header="วัน เดือน ปี (เวลา)" class="text-xl">
+          <Column
+            field="currentDateTime"
+            header="วัน เดือน ปี เวลา: ชั่วโมง:นาที:วินาที"
+            class="text-xl"
+          >
             <template #body="slotProps">
               {{
                 slotProps.data.currentDateTime.toLocaleString('th-TH', {

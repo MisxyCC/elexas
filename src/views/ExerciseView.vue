@@ -57,7 +57,7 @@
           </template>
           <template #content>
             <div class="flex flex-col md:flex-row gap-2 mt-1 justify-center items-center">
-              <Button label="SOS ขอความช่วยเหลือ" @click="onReset" severity="help" />
+              <Button label="ขอความช่วยเหลือ" @click="onSOSbuttonClicked" severity="help" />
             </div>
           </template>
         </Card>
@@ -168,4 +168,6 @@ async function onConnectClicked(): Promise<void> {
 }
 
 function onFinishExercise(): void {}
+
+function onSOSbuttonClicked(): void {}
 </script>

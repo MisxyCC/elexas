@@ -5,22 +5,22 @@
     </div>
 
     <div class="flex gap-2 bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-      <p class="mb-2 text-sm text-gray-700">
-        <strong>Status:</strong> <span :class="statusClass">{{ playbackStatus }}</span>
+      <p class="mb-2 text-lg text-gray-700">
+        <strong>สถานะ:</strong> <span :class="statusClass">{{ playbackStatus }}</span>
       </p>
-      <p class="mb-2 text-sm text-gray-700">
-        <strong>Played at least once:</strong>
+      <p class="mb-2 text-lg text-gray-700">
+        <strong>Played at least once: </strong>
         <span :class="playedOnce ? 'text-green-500 font-semibold' : 'text-red-500 font-semibold'">{{
           playedOnce ? 'Yes' : 'No'
         }}</span>
       </p>
-      <p class="mb-2 text-sm text-gray-700">
-        <strong>Current Time:</strong> {{ currentTime.toFixed(2) }}s
+      <p class="mb-2 text-lg text-gray-700">
+        <strong>Current Time: </strong> {{ currentTime.toFixed(2) }}s
       </p>
-      <p class="mb-2 text-sm text-gray-700">
-        <strong>Duration:</strong> {{ duration > 0 ? duration.toFixed(2) : 'N/A' }}s
+      <p class="mb-2 text-lg text-gray-700">
+        <strong>Duration: </strong> {{ duration > 0 ? duration.toFixed(2) : 'N/A' }}s
       </p>
-      <p v-if="isVideoEnded" class="text-sm text-gray-700">
+      <p v-if="isVideoEnded" class="text-text-lg text-gray-700">
         <strong>Video has finished playing.</strong>
       </p>
     </div>
@@ -31,20 +31,20 @@
         :disabled="isPlaying"
         class="py-2.5 px-5 bg-blue-500 text-white rounded-md font-medium cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
-        Play
+        เล่นวีดีโอออกกำลังกาย
       </button>
       <button
         @click="pauseVideo"
         :disabled="!isPlaying"
         class="py-2.5 px-5 bg-blue-500 text-white rounded-md font-medium cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
-        Pause
+        หยุดการเล่นวีดีโอออกกำลังกายชั่วคราว
       </button>
       <button
         @click="resetVideo"
-        class="py-2.5 px-5 bg-blue-500 text-white rounded-md font-medium cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-600"
+        class="py-2.5 px-5 bg-[#ffc300] text-white rounded-md font-medium cursor-pointer transition-colors duration-200 ease-in-out hover:bg-[#ffd60a]"
       >
-        Reset Played Status
+        สิ้นสุดการออกกำลังกาย
       </button>
     </div>
   </div>
