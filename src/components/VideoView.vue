@@ -4,20 +4,20 @@
       <div id="youtube-player" class="block w-full h-auto rounded-lg aspect-video"></div>
     </div>
 
-    <div class="flex gap-2 bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-      <p class="mb-2 text-lg text-gray-700">
+    <div class="flex gap-2 bg-white p-4 rounded-lg border border-gray-200 shadow-sm text-xl">
+      <p class="mb-2 text-gray-700">
         <strong>สถานะ:</strong> <span :class="statusClass">{{ playbackStatus }}</span>
       </p>
-      <p class="mb-2 text-lg text-gray-700">
+      <p class="mb-2 text-gray-700">
         <strong>Played at least once: </strong>
         <span :class="playedOnce ? 'text-green-500 font-semibold' : 'text-red-500 font-semibold'">{{
           playedOnce ? 'Yes' : 'No'
         }}</span>
       </p>
-      <p class="mb-2 text-lg text-gray-700">
+      <p class="mb-2 text-gray-700">
         <strong>Current Time: </strong> {{ currentTime.toFixed(2) }}s
       </p>
-      <p class="mb-2 text-lg text-gray-700">
+      <p class="mb-2 text-gray-700">
         <strong>Duration: </strong> {{ duration > 0 ? duration.toFixed(2) : 'N/A' }}s
       </p>
       <p v-if="isVideoEnded" class="text-text-lg text-gray-700">
@@ -38,7 +38,7 @@
         :disabled="!isPlaying"
         class="py-2.5 px-5 bg-blue-500 text-white rounded-md font-medium cursor-pointer transition-colors duration-200 ease-in-out hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
-        หยุดการเล่นวีดีโอออกกำลังกายชั่วคราว
+        หยุดชั่วคราว
       </button>
       <button
         @click="resetVideo"
@@ -74,7 +74,7 @@ const isVideoEnded = ref<boolean>(false);
 const currentTime = ref<number>(0);
 const duration = ref<number>(0);
 let timeUpdateInterval: number | null = null; // To hold the interval for time updates
-
+const currentTimeFormatted = ref('');
 // --- Computed property for status styling (no changes needed) ---
 const statusClass = computed(() => {
   if (isPlaying.value) return 'text-blue-500 font-semibold';
@@ -176,6 +176,9 @@ const startTimeUpdater = () => {
   timeUpdateInterval = window.setInterval(() => {
     if (player.value && typeof player.value.getCurrentTime === 'function') {
       currentTime.value = player.value.getCurrentTime();
+      currentTimeFormatted.value = new Date(currentTime.value * 1000)
+        .toISOString()
+        .substring(14, 21);
     }
   }, 250); // Update every 250ms
 };

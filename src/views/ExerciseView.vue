@@ -6,7 +6,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow p-4 w-full">
+    <main class="flex-grow p-4 w-full bg-white">
       <!-- Sidebar -->
       <aside class="p-2 flex flex-col md:flex-row gap-4">
         <Card class="w-full md:w-1/2">
@@ -22,7 +22,9 @@
         </Card>
         <Card class="w-full md:w-1/3">
           <template #title>
-            <div class="flex justify-center items-center">สถานะการเชื่อมต่อ Bluetooth</div>
+            <div class="flex justify-center items-center text-center">
+              สถานะการเชื่อมต่อ Bluetooth
+            </div>
           </template>
           <template #content>
             <div class="flex justify-center items-center">
