@@ -1,5 +1,26 @@
 <template>
-  <section
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-lg shadow-md">
+        <div>
+          <h1 class="text-3xl md:text-6xl font-light leading-relaxed text-teal-600 mb-4 text-center">เว็บไซต์สำหรับออกกำลังกายที่บ้านอย่างปลอดภัย สำหรับผู้สูงอายุ</h1>
+          <p class="text-2xl md:text-3xl font-light leading-relaxed text-gray-700 mb-6 pt-4 text-center">
+            เว็บไซต์นี้จัดทำขึ้นเพื่อให้ผู้สูงอายุสามารถออกกำลังกายได้อย่างปลอดภัยและมั่นใจจากที่บ้าน
+        ด้วยโปรแกรมที่ออกแบบโดยนักกายภาพบำบัด ช่วยเพิ่มความแข็งแรง ลดความเสี่ยงในการหกล้ม ใช้งานง่าย
+        เหมาะกับทุกคน โดยเฉพาะผู้สูงอายุที่อาจอยู่ตามลำพัง
+          </p>
+          <div class="flex flex-col space-y-4 gap-2">
+            <button class="text-2xl md:text-3xl font-light leading-relaxed block w-full text-center bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-full">
+              เพราะเราเชื่อว่า “การหกล้ม…ป้องกันได้”
+            </button>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded-lg">
+          <img src="../assets/bg-image.jpg" alt="Elderly woman exercising with a trainer" class="">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        </div>
+      </section>
+
+      
+  <!-- <section
     class="relative min-h-[calc(100vh-80px)] flex items-center justify-center text-white bg-gradient-to-br from-teal-400 via-emerald-500 to-green-600"
   >
     <div class="absolute inset-0">
@@ -29,7 +50,7 @@
         <span class="truncate">เพราะเราเชื่อว่า “การหกล้ม…ป้องกันได้”</span>
       </button>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script setup lang="ts">
