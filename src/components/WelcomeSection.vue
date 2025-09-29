@@ -1,7 +1,7 @@
 <template>
   <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-lg shadow-md">
         <div>
-          <h1 class="text-3xl md:text-6xl font-light leading-relaxed text-teal-600 mb-4 text-center">เว็บไซต์สำหรับออกกำลังกายที่บ้านอย่างปลอดภัย สำหรับผู้สูงอายุ</h1>
+          <h1 class="text-3xl md:text-6xl font-light leading-relaxed text-teal-600 mb-4 text-center pt-10">เว็บไซต์สำหรับออกกำลังกายที่บ้านอย่างปลอดภัย สำหรับผู้สูงอายุ</h1>
           <p class="text-2xl md:text-3xl font-light leading-relaxed text-gray-700 mb-6 pt-4 text-center">
             เว็บไซต์นี้จัดทำขึ้นเพื่อให้ผู้สูงอายุสามารถออกกำลังกายได้อย่างปลอดภัยและมั่นใจจากที่บ้าน
         ด้วยโปรแกรมที่ออกแบบโดยนักกายภาพบำบัด ช่วยเพิ่มความแข็งแรง ลดความเสี่ยงในการหกล้ม ใช้งานง่าย
