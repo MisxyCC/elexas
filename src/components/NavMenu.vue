@@ -19,7 +19,7 @@
               :key="item.name"
               :href="item.href"
               @click.prevent="navigateToSection(item.targetSection)"
-              class="text-black px-3 py-2 rounded-md text-lg font-medium hover:bg-[#30e89e] transition-colors duration-300 cursor-pointer"
+              class="text-black px-3 py-2 rounded-md text-lg font-medium hover:bg-teal-600 transition-colors duration-300 cursor-pointer"
             >
               {{ item.name }}
             </a>
