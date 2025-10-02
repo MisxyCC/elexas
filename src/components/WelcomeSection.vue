@@ -17,7 +17,7 @@
         <button
           class="text-2xl md:text-3xl font-light leading-relaxed block w-full text-center bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-full"
         >
-          เพราะเราเชื่อว่า “การหกล้ม…ป้องกันได้”
+          เพราะเราเชื่อว่า “การหกล้มสามารถป้องกันได้”
         </button>
       </div>
     </div>
