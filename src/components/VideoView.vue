@@ -75,7 +75,6 @@ const currentTime = ref<number>(0);
 const duration = ref<number>(0);
 let timeUpdateInterval: number | null = null; // To hold the interval for time updates
 const currentTimeFormatted = ref('');
-// --- Computed property for status styling (no changes needed) ---
 const statusClass = computed(() => {
   if (isPlaying.value) return 'text-blue-500 font-semibold';
   if (isVideoEnded.value) return 'text-purple-500 font-semibold';

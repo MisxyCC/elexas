@@ -7,6 +7,17 @@
 
     <!-- Main Content -->
     <main class="flex-grow p-4 w-full bg-white">
+      <!-- Main Content Area -->
+      <section class="p-2 w-full">
+        <Card>
+          <template #title>
+            <div class="flex justify-center items-center">วีดีโอการออกกำลังกาย</div>
+          </template>
+          <template #content>
+            <VideoView></VideoView>
+          </template>
+        </Card>
+      </section>
       <!-- Sidebar -->
       <aside class="p-2 flex flex-col md:flex-row gap-4">
         <Card class="w-full md:w-1/2">
@@ -64,18 +75,6 @@
           </template>
         </Card>
       </aside>
-
-      <!-- Main Content Area -->
-      <section class="p-2 w-full">
-        <Card>
-          <template #title>
-            <div class="flex justify-center items-center">วีดีโอการออกกำลังกาย</div>
-          </template>
-          <template #content>
-            <VideoView></VideoView>
-          </template>
-        </Card>
-      </section>
       <ExerciseConclusion></ExerciseConclusion>
     </main>
 
